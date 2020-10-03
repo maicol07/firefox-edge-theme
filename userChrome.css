@@ -90,8 +90,8 @@ toolbar #tabs-newtab-button > .toolbarbutton-icon {
 }
 
 toolbar .toolbarbutton-1 {
-  margin-left: 4px !important;
-  margin-right: 4px !important;
+  margin-left: 2px !important;
+  margin-right: 2px !important;
 }
 
 :root:not([uidensity='compact']) #PanelUI-button {
@@ -105,30 +105,34 @@ toolbar .toolbarbutton-1 {
 /* URL/SEARCH BAR */
 
 #urlbar:not(.megabar):not(.hidden-focus)[focused='true'] {
-  border: 1px solid rgb(59, 157, 238) !important;
   box-shadow: 0 0 0 1px rgb(49, 134, 204) !important;
 }
 
 #urlbar,
 #searchbar {
-  border: 1px solid transparent !important;
   min-height: 31px !important;
-  font-size: 1.3em !important;
+  font-size: 1.2em !important;
 }
 
 :root[uidensity='compact'] #urlbar,
 :root[uidensity='compact'] #searchbar {
-  border: 1px solid transparent !important;
   min-height: 29px !important;
   font-size: 1.25em !important;
+}
+
+#urlbar[focused="true"] > #urlbar-background {
+  border: none !important;
 }
 
 #PanelUI-button {
   border: none !important;
 }
 
-/* TABS */
+#PersonalToolbar {
+  height: 31px;
+}
 
+/* TABS */
 .tab-close-button,
 .close-icon {
   width: 16px !important;
@@ -149,8 +153,8 @@ toolbar .toolbarbutton-1 {
   background-color: rgba(255, 255, 255, 0.04) !important;
 }
 
-.tab-background {
-  border-top: none !important;
+#toolbar-menubar:not([autohide="true"]) + #TabsToolbar .tabbrowser-tab > .tab-stack > .tab-background[selected="true"] {
+  border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
 }
 
 .tabbrowser-tab {
@@ -177,12 +181,12 @@ toolbar .toolbarbutton-1 {
 }
 
 #tabbrowser-tabs:not([movingtab])
-  > .tabbrowser-arrowscrollbox
+  > #tabbrowser-arrowscrollbox
   > .tabbrowser-tab
   > .tab-stack
   > .tab-background[multiselected='true']:-moz-lwtheme,
 #tabbrowser-tabs:not([movingtab])
-  > .tabbrowser-arrowscrollbox
+  > #tabbrowser-arrowscrollbox
   > .tabbrowser-tab
   > .tab-stack
   > .tab-background[selected='true']:-moz-lwtheme {
@@ -192,15 +196,15 @@ toolbar .toolbarbutton-1 {
     ),
     linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)),
     var(--lwt-header-image, none) !important;
-  box-shadow: 0 5px 6px rgba(0, 0, 0, 0.15), 0 0 2px rgba(0, 0, 0, 0.11) !important;
+  box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.15), 0 0 2px rgba(0, 0, 0, 0.11) !important;
 }
 
 #main-window[lwthemetextcolor='bright']
   #tabbrowser-tabs:not([movingtab])
-  > .tabbrowser-arrowscrollbox
+  > #tabbrowser-arrowscrollbox
   > .tabbrowser-tab
   > .tab-stack
-  > .tab-background[selected='true']:-moz-lwtheme {
+  > .tab-background[selected="true"]:-moz-lwtheme {
   box-shadow: 0 4px 3px rgba(0, 0, 0, 0.45) !important;
 }
 
@@ -215,15 +219,15 @@ toolbar .toolbarbutton-1 {
   padding-left: 5px !important;
 }
 
-#main-window[extradragspace] .arrowscrollbox-scrollbox {
+#main-window .arrowscrollbox-scrollbox {
   padding-top: 3px !important;
 }
 
-:root[extradragspace] #TabsToolbar > .toolbar-items {
+#TabsToolbar > .toolbar-items {
   padding-top: 5px !important;
 }
 
-:root[extradragspace][uidensity='compact'] #TabsToolbar > .toolbar-items {
+:root[uidensity='compact'] #TabsToolbar > .toolbar-items {
   padding-top: 1px !important;
 }
 
@@ -242,18 +246,12 @@ toolbar .toolbarbutton-1 {
 }
 
 /* TABS RADIUS */
-/* TABS RADIUS */
-/* TABS RADIUS */
-/* TABS RADIUS */
-/* TABS RADIUS */
-/* TABS RADIUS */
-
-:root[extradragspace] .tab-background {
+:root .tab-background {
   border-radius: 4px 4px 0 0 !important;
 }
 
-:root[extradragspace] .tab-background:before,
-:root[extradragspace] .tab-background:after {
+:root .tab-background:before,
+:root .tab-background:after {
   content: '';
   position: absolute;
   bottom: -2px;
@@ -271,12 +269,12 @@ toolbar .toolbarbutton-1 {
   border-style: solid;
 }
 
-:root[extradragspace] .tab-background:before {
+:root .tab-background:before {
   left: -10px;
   transform: rotate(-45deg);
 }
 
-:root[extradragspace] .tab-background:after {
+:root .tab-background:after {
   right: -10px;
   transform: rotate(45deg);
 }
